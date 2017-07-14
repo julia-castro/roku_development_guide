@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<component name='PosterItem' extends='Group'>
+  <interface>
+    <field id='width' type='float' onChange='updateLayout'/>
+    <field id='height' type='float' onChange='updateLayout'/>
+    <field id='itemContent' type='node' onChange='itemContentChanged'/>
+  </interface>
+  <script type='text/brightscript'>
+    <![CDATA[
+    ]]>
+  </script>
+  <children>
+    <Poster id='poster'>
+    </Poster>
+  </children>
+</component>
