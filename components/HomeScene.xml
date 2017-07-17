@@ -57,5 +57,15 @@
         translation='[850,10]'
       />
     </Group>
+    <children>
+      <Video
+        id="Video"
+        height='1080'
+        width='1920'
+        enableUI='false'
+        loop='true'
+        visible='false'
+      />
+    </children>
   </children>
 </component>

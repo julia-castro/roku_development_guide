@@ -8,6 +8,11 @@ Sub init()
   m.LoadTask = CreateObject('roSGNode', 'FeedParser')
   m.LoadTask.control = 'RUN'
   m.LoadTask.observeField('content', 'rowListContentChanged')
+
+  m.Video = m.top.findNode('Video')
+  m.videoContent = createObject('roSGNode', 'ContentNode')
+
+  m.RowList.observeField('rowItemSelected', 'playVideo')
 End Sub
 
 Sub rowListContentChanged()
@@ -23,3 +28,22 @@ Sub changeContent()
   m.Title.text = contentItem.TITLE
   m.Description.text = contentItem.Description
 end Sub
+
+Sub playVideo()
+  m.videoContent.url = m.RowList.content.getChild(m.RowList.rowItemFocused[0]).getChild(m.RowList.rowItemFocused[1]).URL
+
+  m.videContent.streamFormat = 'mp4'
+  m.Video.content = m.videoContent
+  m.Video.visible = 'true'
+  m.Video.control = 'play'
+End Sub
+
+Function onKeyEvent(key as String, press as Boolean)
+  if press
+    if key = 'back'
+      m.Video.visible = 'false'
+      m.Video.control = 'stop'
+      return true
+    end if
+  end if
+end Function
