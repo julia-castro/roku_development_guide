@@ -3,8 +3,26 @@ Sub Init()
 End Sub
 
 Sub loadContent()
-  list = GetContentFeed()
-  m.top.content - ParseXMLContent(list)
+  oneRow = GetContentFeed()
+  list = [
+    {
+      Title: "Row One"
+      ContentList : SelectTo(oneRow, 3)
+    }
+    {
+      Title: "Row Two"
+      ContentList : SelectTo(oneRow, 5, 3)
+    }
+    {
+      Title: "Row Three"
+      ContentList : SelectTo(oneRow, 5, 8)
+    }
+    {
+      Title: "Row Four"
+      ContentList : SelectTo(oneRow, 5, 13)
+    }
+  ]
+  m.top.content = ParseXMLContent(list)
 End Sub
 
 Function ParseXMLContent(list As Object)
@@ -72,4 +90,15 @@ Function ParseXML(str As String) As dynamic
   xml = CreateObject('roXMLElement')
   if not xml.Parse(str) return invalid
   return xml
+End Function
+
+Function SelectTo(array as Object, num = 25 as Integer, start = 0 as Integer) as Object
+  result = []
+  for i = start to array.count()-1
+    result.push(array[i])
+    if result.Count() >= num
+      exit for
+    end if
+  end for
+  return result
 End Function
