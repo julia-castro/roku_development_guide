@@ -1,71 +1,69 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
-<component name='HomeScene' extends='Scene'>
-  <script type='text/brightscript' uri='pkg:/components/HomeScene.brs' />
+<component name="HomeScene" extends="Scene">
+  <script type="text/brightscript" uri="pkg:/components/HomeScene.brs" />
   <children>
     <Rectangle
-      id='shader'
-      height='1080'
-      width='1920'
-      color='0x000000FF'
-      opacity='0.7' />
+      id="shader"
+      height="1080"
+      width="1920"
+      color="0x000000FF"
+      opacity="0.7" />
 
     <RowList
-      id='RowList'
-      translation='[0, 500]'
-      itemComponentName='PosterItem'
-      numRows='4'
-      rowItemSize='[[351, 197]]'
-      rowItemSpacing='[[20, 0]]'
-      itemSize='[1920, 270]'
-      rowLabelOffset='[[50, 10]]'
-      focusXOffset='[50]'
-      showRowLabel='[true]'
-      rowFocusAnimationStyle='floatingfocus'
+      id="RowList"
+      translation="[0, 500]"
+      itemComponentName="PosterItem"
+      numRows="4"
+      rowItemSize="[[351, 197]]"
+      rowItemSpacing="[[20, 0]]"
+      itemSize="[1920, 270]"
+      rowLabelOffset="[[50, 10]]"
+      focusXOffset="[50]"
+      showRowLabel="[true]"
+      rowFocusAnimationStyle="floatingfocus"
     />
 
     <Rectangle
-      id='Overhang'
-      height='400'
-      width='1920'
-      color='0x000000FF'
-      opacity='0.5'
+      id="Overhang"
+      height="400"
+      width="1920"
+      color="0x000000FF"
+      opacity="0.5"
     />
     <Group
-      translation'[150.75]'>
+      translation="[150.75]">
       <Label
-        id='Title'
-        height='30'
-        width='650'
-        font='font:LargeBoldSystemFont'
+        id="Title"
+        height="30"
+        width="650"
+        font="font:LargeBoldSystemFont"
       />
       <Label
-        id='Description'
-        height='250'
-        width='800'
-        color='0xA3A3C2FF'
-        translation='[0,75]'
-        wrap='true'
+        id="Description"
+        height="250"
+        width="800"
+        color="0xA3A3C2FF"
+        translation="[0,75]"
+        wrap="true"
       />
       <Poster
-        id='Poster'
-        height='281'
-        width='500'
-        loadWidth='500'
-        loadHeight='281'
-        loadDisplayMode='scaleToFit'
-        translation='[850,10]'
+        id="Poster"
+        height="281"
+        width="500"
+        loadWidth="500"
+        loadHeight="281"
+        loadDisplayMode="scaleToFit"
+        translation="[850,10]"
       />
     </Group>
-    <children>
-      <Video
-        id="Video"
-        height='1080'
-        width='1920'
-        enableUI='false'
-        loop='true'
-        visible='false'
-      />
-    </children>
+    <Video
+      id="Video"
+      height="1080"
+      width="1920"
+      enableUI="false"
+      loop="true"
+      visible="false"
+    />
   </children>
 </component>

@@ -1,23 +1,23 @@
 Sub init()
-  m.RowList = m.top.findNode('RowList')
-  m.Title = m.top.findNode('Title')
-  m.Description = m.top.findNode('Description')
-  m.Poster = m.top.findNode('Poster')
+  m.RowList = m.top.findNode("RowList")
+  m.Title = m.top.findNode("Title")
+  m.Description = m.top.findNode("Description")
+  m.Poster = m.top.findNode("Poster")
 
   m.RowList.setFocus(true)
-  m.LoadTask = CreateObject('roSGNode', 'FeedParser')
-  m.LoadTask.control = 'RUN'
-  m.LoadTask.observeField('content', 'rowListContentChanged')
+  m.LoadTask = CreateObject("roSGNode", "FeedParser")
+  m.LoadTask.control = "RUN"
+  m.LoadTask.observeField("content", "rowListContentChanged")
 
-  m.Video = m.top.findNode('Video')
-  m.videoContent = createObject('roSGNode', 'ContentNode')
+  m.Video = m.top.findNode("Video")
+  m.videoContent = createObject("roSGNode", "ContentNode")
 
-  m.RowList.observeField('rowItemSelected', 'playVideo')
+  m.RowList.observeField("rowItemSelected", "playVideo")
 End Sub
 
 Sub rowListContentChanged()
   m.RowList.content = m.LoadTask.content
-  m.RowList.observeField('rowItemFocused', 'changeContent')
+  m.RowList.observeField("rowItemFocused", "changeContent")
 end Sub
 
 Sub changeContent()
@@ -32,17 +32,17 @@ end Sub
 Sub playVideo()
   m.videoContent.url = m.RowList.content.getChild(m.RowList.rowItemFocused[0]).getChild(m.RowList.rowItemFocused[1]).URL
 
-  m.videContent.streamFormat = 'mp4'
+  m.videoContent.streamFormat = "mp4"
   m.Video.content = m.videoContent
-  m.Video.visible = 'true'
-  m.Video.control = 'play'
+  m.Video.visible = "true"
+  m.Video.control = "play"
 End Sub
 
 Function onKeyEvent(key as String, press as Boolean)
   if press
-    if key = 'back'
-      m.Video.visible = 'false'
-      m.Video.control = 'stop'
+    if key = "back"
+      m.Video.visible = "false"
+      m.Video.control = "stop"
       return true
     end if
   end if
